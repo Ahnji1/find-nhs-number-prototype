@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        We cannot find your NHS number
+      </h1>
+
+
+<p>This is because the details you entered do not match your GP records.</p>
+
+{% from "warning-callout/macro.njk" import warningCallout %}
+
+{{ warningCallout({
+  heading: "Important",
+  text: "You do not need to know your NHS number to use NHS services, including booking appointments."
+}) }}
+
+<p>You can find your NHS number on any letter you have received from the NHS.</p>
+<p><a href="what-is-your-name.html">Try again</a> or contact your GP surgery to get your NHS number. If you're not sure what your GP surgery is, you can <a href="https://www.nhs.uk/service-search/find-a-GP">find a GP</a>.</p>
+
+
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+
+{% from "radios/macro.njk" import radios %}
+{% from "fieldset/macro.njk" import fieldset %}
+{% from "hint/macro.njk" import hint %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "#",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+ {{ radios({
+  idPrefix: "example-hints",
+  name: "exampleHints",
+  fieldset: {
+    legend: {
+      text: "Where should we send your NHS number?",
+      size: "l",
+      isPageHeading: true
+    }
+  },
+  hint: {
+    text: "Your GP surgery has these contact details on file for you. 
+
+If more than one option is available, you can choose how we send your NHS number."
+  },
+  items: [
+    {
+      value: "email",
+      text: "By email to ••••••27@••••l.com",
+      hint: {
+        text: "Choosing email can help you save your NHS number for later"
+      }
+    },
+    {
+      value: "text-message",
+      text: "By text to mobile ending 392"
+    },
+    {
+      value: "letter",
+      text: "By letter to E20 1HB"
+    }
+  ]
+}) }}
+
+
+
+
+{% call details({
+  summaryText: "If you cannot use these contact details"
+}) %}
+  <p>There are other ways to get your NHS number:</p>
+  <p><b>Use your NHS account</b></p>
+  <ul>
+    <li>log into the <a href="https://www.nhs.uk/nhs-app/account/">NHS website or NHS app</a>. You can find your number under your profile </li>
+    <li>you can <a href="https://www.nhs.uk/nhs-app/account/">create an account</a> if you do not have one</li>
+  </ul>
+  
+<p><b>Contact your GP surgery:</b></p>
+  <ul>
+    <li>your GP surgery can tell you your NHS number</li>
+    <li>if you do not know your GP surgery, <a href="https://www.nhs.uk/service-search/find-a-gp/">you can find one here</a></li>
+  </ul>
+
+{% endcall %}
+
+
+
+  {{ button({
+        text: "Send my NHS number",
+        href: "we-have-sent-your-NHS-number-to-you"
+      }) }}
+
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+
+    </div>
+  </div>
+{% endblock %}

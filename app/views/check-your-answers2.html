@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+
+
+{% from "button/macro.njk" import button %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "what-is-your-sex",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers 
+      </h1>
+
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Sex"
+            },
+            value: {
+              text: data['whatIsYourSex']
+            },
+            actions: {
+              items: [
+                {
+                  href: "what-is-your-sex",
+                  text: "Change",
+                  visuallyHiddenText: "Sex"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+     
+
+      {{ button({
+        text: "Continue",
+        href: "where-should-we-send-your-NHS-number"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

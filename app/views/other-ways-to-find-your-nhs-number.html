@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "start-pagee",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        Other ways to find your NHS number
+      </h1>
+
+
+<p>It might be quicker to find your NHS number in your account, under your profile. </p>
+<p>If you have an account, you can log in through the <a href="https://www.nhs.uk/nhs-app/account/">NHS website or the NHS app</a>.</p>
+<p>Otherwise, continue with this form.</p>
+
+   {{ button({
+        text: "Start now",
+        href: "what-is-your-name"
+      }) }}
+
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+
+    </div>
+  </div>
+{% endblock %}

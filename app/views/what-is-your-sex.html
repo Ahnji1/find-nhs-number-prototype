@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+       We need to ask one more question
+      </h1>
+
+
+<p>We could not find your NHS number using the details you gave us.</p>
+<p>We need to ask one more question to check your identity.</p>
+<p>We will check your answer against the information held by your GP surgery.</p>
+
+
+<div class="nhsuk-u-padding-bottom-5"></div>
+
+  <form method="post" action="/check-your-answers2">
+
+
+{{ radios({
+  idPrefix: "whatIsYourSex",
+  name: "whatIsYourSex",
+  fieldset: {
+    legend: {
+      text: " What is your sex? ",
+      size: "m",
+      isPageHeading: true
+    }
+  },
+  hint: {
+    text: "Enter the details you used when you registered with your GP surgery."
+  },
+  items: [
+    {
+      value: "male",
+      text: "Male"
+    },
+    {
+      value: "female",
+      text: "Female"
+    },
+    {
+      value: "intersex",
+      text: "Intersex"
+    },
+    {
+      value: "NotSpecifiedOrKnown",
+      text: "Not specified or known"
+    }
+  ]
+}) }}
+
+  {{ button({
+    text: "Continue"
+  }) }}
+
+  
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
+

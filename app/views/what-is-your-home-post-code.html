@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/what-is-your-date-of-birth",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        What is your home postcode?
+      </h1>
+
+{{ hint({
+  html: 'Enter the postcode you used when registering with your GP surgery. For example, EN1 1BE.'
+}) }}
+
+  <form method="post" action="/check-your-answers">
+
+  {{ input({
+    id: "postcode",
+    classes: "nhsuk-input--width-10",
+    name: "postcode",
+    label: {
+      text: "Postcode"
+    }
+  }) }}
+
+  {{ button({
+    text: "Continue"
+  }) }}
+
+</form>
+
+  
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "other-ways-to-find-your-nhs-number",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        What is your name?
+      </h1>
+
+{{ hint({
+  html: 'Enter the name you used when registering with your GP surgery. If you’re unsure, enter the name you most likely used.'
+}) }}
+
+  <form method="post" action="/what-is-your-date-of-birth">
+
+  {{ input({
+    id: "firstName",
+    name: "firstName",
+    label: {
+      text: "First name"
+    }
+  }) }}
+
+    {{ input({
+    id: "lastName",
+    name: "lastName",
+    label: {
+      text: "Last name"
+    }
+  }) }}
+
+  {{ button({
+    text: "Continue"
+  }) }}
+
+</form>
+  
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
+

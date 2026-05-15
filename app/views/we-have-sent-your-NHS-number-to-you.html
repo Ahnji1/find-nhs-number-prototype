@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+
+{% block content %}
+
+{% from "panel/macro.njk" import panel %}
+
+{{ panel({
+  titleText: "We have sent your NHS number to you"
+}) }}
+
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        When you will get your NHS number
+      </h1>
+
+
+<p class="nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-1">
+  Text message or email
+</p>
+<p>It should arrive within 1 hour.</p>
+
+ <p class="nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-1">
+  Letter
+</p>
+
+<p>It should arrive within 5 days.</p>
+
+<p class="nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-1">
+  If it does not arrive
+</p>
+
+<p>
+  If you do not receive your NHS number after 5 days,
+  contact your GP surgery.
+</p>
+
+<p>If you do not know which GP surgery you are registered with, you can <a href="https://www.nhs.uk/service-search/find-a-gp/">find a GP surgery here</a>.</p>
+
+  <h2 class="nhsuk-heading-m">
+        Other ways to get your NHS number
+      </h2>
+
+<p>You can also find your NHS number by logging into the <a href="https://www.nhs.uk/nhs-app/account/">NHS website or NHS app</a>.</p>
+<p>Or you can <a href="https://www.nhs.uk/nhs-app/account/">create an account if you do not have one</a>.</p>
+
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+
+    </div>
+  </div>
+{% endblock %}

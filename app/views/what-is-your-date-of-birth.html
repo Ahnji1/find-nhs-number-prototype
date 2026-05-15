@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "header/macro.njk" import header %}
+{% from "footer/macro.njk" import footer %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "what-is-your-name",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form method="post" action="/what-is-your-home-post-code">
+
+        {{ dateInput({
+          id: "dateofbirth",
+          namePrefix: "dob",
+          fieldset: {
+            legend: {
+              text: "What is your date of birth?",
+              size: "l",
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "For example, 15 11 2018"
+          },
+          items: [
+            { name: "day", classes: "nhsuk-input--width-2"},
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+        }) }}
+
+{{ button({
+  text: "Continue"
+}) }}
+
+
+      </form>
+    </div>
+  </div>
+  
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
