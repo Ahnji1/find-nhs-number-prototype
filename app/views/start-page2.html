@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+
+{% from "breadcrumb/macro.njk" import breadcrumb %}
+{% from "button/macro.njk" import button %}
+{% from 'inset-text/macro.njk' import insetText %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set dummyNhsNumber = "485 777 3456" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "NHS services"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">Find your NHS number</h1>
+      <p>Use this form to get your NHS number.</p>
+      <p>Your NHS number is a 10 digit number, like 999 123 4567.</p>
+  
+
+      <h2 class="nhsuk-heading-l"> Who can use this form</h2>
+      <p>You need to be registered with a GP in England to use this form, as we match your details with your GP record.</p>
+      <p>You can use this form for yourself or for someone else.</p>
+
+
+         <h2 class="nhsuk-heading-l">How you will get your NHS number</h2>
+      <p>You can choose how you receive your NHS number</p>
+      <p>Depending on the details your GP has, you can choose from:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>email </li>
+        <li>text message</li>
+        <li>letter</li>
+      </ul>
+
+
+      <h2 class="nhsuk-heading-l">Before you start</h2>
+      <p>You will need your:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>full name</li>
+        <li>date of birth</li>
+        <li>postcode of the address you used to register with your GP surgery.</li>
+      </ul>
+
+      {{ button({
+        text: "Start now",
+        href: "other-ways-to-find-your-nhs-number2"
+      }) }}
+
+  
+
+      <h2 class="nhsuk-heading-l">About using this service</h2>
+      <p>By using this service you are agreeing to our <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}

@@ -8,59 +8,47 @@
 
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
+
 {% block beforeContent %}
   {{ backLink({
-    href: "check-your-answers1-1",
+    href: "what-is-your-name2",
     text: "Back"
   }) }}
 {% endblock %}
 
-
-
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-       We need more information
-      </h1>
+      <form method="post" action="/what-is-your-home-post-code2">
 
+        {{ dateInput({
+          id: "dateofbirth",
+          namePrefix: "dob",
+          fieldset: {
+            legend: {
+              text: "What is your date of birth?",
+              size: "l",
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "For example, 15 11 2018"
+          },
+          items: [
+            { name: "day", classes: "nhsuk-input--width-2"},
+            { name: "month", classes: "nhsuk-input--width-2" },
+            { name: "year", classes: "nhsuk-input--width-4" }
+          ]
+        }) }}
 
-<p>We could not find your NHS number using the details you gave us. </p>
-<p>We need some extra information to check your identity.</p>
-
-<div class="nhsuk-u-padding-bottom-5"></div>
-
-      <h2 class="nhsuk-heading-m">
-       What are your contact details?
-      </h2>
-
-{{ hint({
-  html: 'Enter the details you used when you registered with your GP surgery.'
+{{ button({
+  text: "Continue"
 }) }}
 
-  <form method="post" action="/check-your-answers1-2">
 
-  {{ input({
-    id: "mobileNumber",
-    name: "mobileNumnber",
-    label: {
-      text: "Mobile number"
-    }
-  }) }}
-
-    {{ input({
-    id: "emailAddress",
-    name: "emailAddress",
-    label: {
-      text: "Email address"
-    }
-  }) }}
-
-  {{ button({
-    text: "Continue"
-  }) }}
-
-</form>
+      </form>
+    </div>
+  </div>
   
 {% endblock %}
 
@@ -92,5 +80,3 @@
     }
   }) }}
 {% endblock %}
-
-

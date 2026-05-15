@@ -8,6 +8,14 @@
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 
+{% block beforeContent %}
+  {{ backLink({
+    href: "check-your-answers2-3",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
@@ -22,11 +30,16 @@
 
 {{ warningCallout({
   heading: "Important",
-  text: "You do not need to know your NHS number to use NHS services, including booking appointments."
+  text: "While some services may ask for it, you do not need to know your NHS number to use NHS services, including booking appointments."
 }) }}
 
-<p>You can find your NHS number on any letter you have received from the NHS.</p>
-<p><a href="what-is-your-name.html">Try again</a> or contact your GP surgery to get your NHS number. If you're not sure what your GP surgery is, you can <a href="https://www.nhs.uk/service-search/find-a-GP">find a GP</a>.</p>
+<p>You may still be able to find your NHS number:</p>
+  <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>by logging into the <a href="https://www.nhs.uk/nhs-app/account/">NHS app or website</a>. You can find your number under your profile</li>
+        <li>on any letter you received from the NHS</li>
+        <li>by contacting your GP surgery. If you are not sure which GP surgery you are registered with, <a href="https://www.nhs.uk/service-search/find-a-gp/">you can find a GP surgery here</a></li>
+      </ul>
+
 
 
 {% endblock %}

@@ -1,67 +1,48 @@
 {% extends "layout.html" %}
 
 
-
 {% from "back-link/macro.njk" import backLink %}
 {% from "header/macro.njk" import header %}
 {% from "footer/macro.njk" import footer %}
 
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
+
 {% block beforeContent %}
   {{ backLink({
-    href: "check-your-answers1-1",
+    href: "where-should-we-send-your-NHS-number3",
     text: "Back"
   }) }}
 {% endblock %}
-
 
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-       We need more information
+        You cannot request your NHS number again
       </h1>
 
 
-<p>We could not find your NHS number using the details you gave us. </p>
-<p>We need some extra information to check your identity.</p>
+<p>You have requested your NHS number too many times.</p>
+<p>If you selected text or email, it should arrive within an hour.</p>
+<p>If you selected letter it should arrive in 5 days. If you do not receive it after 5 days please contact your GP surgery to get your NHS number.</p>
 
-<div class="nhsuk-u-padding-bottom-5"></div>
 
-      <h2 class="nhsuk-heading-m">
-       What are your contact details?
-      </h2>
+{% from "action-link/macro.njk" import actionLink %}
 
-{{ hint({
-  html: 'Enter the details you used when you registered with your GP surgery.'
+{{ actionLink({
+  text: "Find a GP",
+  href: "#"
 }) }}
 
-  <form method="post" action="/check-your-answers1-2">
 
-  {{ input({
-    id: "mobileNumber",
-    name: "mobileNumnber",
-    label: {
-      text: "Mobile number"
-    }
-  }) }}
 
-    {{ input({
-    id: "emailAddress",
-    name: "emailAddress",
-    label: {
-      text: "Email address"
-    }
-  }) }}
+<p>You can also find your NHS number by logging into the <a href="https://www.nhs.uk/nhs-app/account/">NHS app or website</a>. You can find your number under your profile.</p>
+<p>You can <a href="https://www.nhs.uk/nhs-app/account/">create an account</a> if you do not have one.  </p>
 
-  {{ button({
-    text: "Continue"
-  }) }}
 
-</form>
-  
+
 {% endblock %}
 
 {% block footer %}
@@ -91,6 +72,7 @@
       ]
     }
   }) }}
+
+    </div>
+  </div>
 {% endblock %}
-
-

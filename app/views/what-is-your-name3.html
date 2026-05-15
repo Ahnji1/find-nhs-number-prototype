@@ -8,51 +8,41 @@
 
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
+
 {% block beforeContent %}
   {{ backLink({
-    href: "check-your-answers1-1",
+    href: "other-ways-to-find-your-nhs-number3",
     text: "Back"
   }) }}
 {% endblock %}
-
 
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-       We need more information
+        What is your name?
       </h1>
 
-
-<p>We could not find your NHS number using the details you gave us. </p>
-<p>We need some extra information to check your identity.</p>
-
-<div class="nhsuk-u-padding-bottom-5"></div>
-
-      <h2 class="nhsuk-heading-m">
-       What are your contact details?
-      </h2>
-
 {{ hint({
-  html: 'Enter the details you used when you registered with your GP surgery.'
+  html: 'Enter the name you used when registering with your GP surgery. If you’re unsure, enter the name you most likely used.'
 }) }}
 
-  <form method="post" action="/check-your-answers1-2">
+  <form method="post" action="/what-is-your-date-of-birth3">
 
   {{ input({
-    id: "mobileNumber",
-    name: "mobileNumnber",
+    id: "firstName",
+    name: "firstName",
     label: {
-      text: "Mobile number"
+      text: "First name"
     }
   }) }}
 
     {{ input({
-    id: "emailAddress",
-    name: "emailAddress",
+    id: "lastName",
+    name: "lastName",
     label: {
-      text: "Email address"
+      text: "Last name"
     }
   }) }}
 

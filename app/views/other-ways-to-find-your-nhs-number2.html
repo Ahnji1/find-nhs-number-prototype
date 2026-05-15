@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 
-
 {% from "back-link/macro.njk" import backLink %}
 {% from "header/macro.njk" import header %}
 {% from "footer/macro.njk" import footer %}
@@ -10,58 +9,29 @@
 
 {% block beforeContent %}
   {{ backLink({
-    href: "check-your-answers1-1",
+    href: "start-page2",
     text: "Back"
   }) }}
 {% endblock %}
-
 
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-       We need more information
+        Other ways to find your NHS number
       </h1>
 
 
-<p>We could not find your NHS number using the details you gave us. </p>
-<p>We need some extra information to check your identity.</p>
+<p>It might be quicker to find your NHS number in your account, under your profile. </p>
+<p>If you have an account, you can log in through the <a href="https://www.nhs.uk/nhs-app/account/">NHS website or the NHS app</a>.</p>
+<p>Otherwise, continue with this form.</p>
 
-<div class="nhsuk-u-padding-bottom-5"></div>
+   {{ button({
+        text: "Start now",
+        href: "what-is-your-name2"
+      }) }}
 
-      <h2 class="nhsuk-heading-m">
-       What are your contact details?
-      </h2>
-
-{{ hint({
-  html: 'Enter the details you used when you registered with your GP surgery.'
-}) }}
-
-  <form method="post" action="/check-your-answers1-2">
-
-  {{ input({
-    id: "mobileNumber",
-    name: "mobileNumnber",
-    label: {
-      text: "Mobile number"
-    }
-  }) }}
-
-    {{ input({
-    id: "emailAddress",
-    name: "emailAddress",
-    label: {
-      text: "Email address"
-    }
-  }) }}
-
-  {{ button({
-    text: "Continue"
-  }) }}
-
-</form>
-  
 {% endblock %}
 
 {% block footer %}
@@ -91,6 +61,7 @@
       ]
     }
   }) }}
+
+    </div>
+  </div>
 {% endblock %}
-
-

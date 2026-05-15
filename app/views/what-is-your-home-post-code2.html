@@ -8,51 +8,34 @@
 
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
+
 {% block beforeContent %}
   {{ backLink({
-    href: "check-your-answers1-1",
+    href: "/what-is-your-date-of-birth2",
     text: "Back"
   }) }}
 {% endblock %}
-
 
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-       We need more information
+        What is your home postcode?
       </h1>
 
-
-<p>We could not find your NHS number using the details you gave us. </p>
-<p>We need some extra information to check your identity.</p>
-
-<div class="nhsuk-u-padding-bottom-5"></div>
-
-      <h2 class="nhsuk-heading-m">
-       What are your contact details?
-      </h2>
-
 {{ hint({
-  html: 'Enter the details you used when you registered with your GP surgery.'
+  html: 'Enter the postcode you used when registering with your GP surgery. For example, EN1 1BE.'
 }) }}
 
-  <form method="post" action="/check-your-answers1-2">
+  <form method="post" action="/check-your-answers2-1">
 
   {{ input({
-    id: "mobileNumber",
-    name: "mobileNumnber",
+    id: "postcode",
+    classes: "nhsuk-input--width-10",
+    name: "postcode",
     label: {
-      text: "Mobile number"
-    }
-  }) }}
-
-    {{ input({
-    id: "emailAddress",
-    name: "emailAddress",
-    label: {
-      text: "Email address"
+      text: "Postcode"
     }
   }) }}
 
@@ -61,6 +44,7 @@
   }) }}
 
 </form>
+
   
 {% endblock %}
 
@@ -92,5 +76,3 @@
     }
   }) }}
 {% endblock %}
-
-
